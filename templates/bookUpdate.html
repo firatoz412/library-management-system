@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitap Güncelle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bookUpdate.css') }}">
+
+</head>
+<body>
+    <h1>Kitap Güncelle</h1>
+    <form method="POST" action="{{ url_for('books.bookUpdate', id=books.book_id) }}">
+        <label>Kitap Ad:</label><br>
+        <input type="text" name="title" value="{{ books.title }}" required><br>
+
+        <label>Yazarı:</label><br>
+        <input type="text" name="author_name" value="{{ books.author_name }}" required><br>
+
+        <label>Kategorisi:</label><br>
+        <input type="text" name="category_name" value="{{ books.category_name }}" required><br>
+
+        <label>Yayınlanma Yılı:</label><br>
+        <input type="text" name="publish_year" value="{{ books.publish_year }}" required><br>
+
+        <label>Açıklama:</label><br>
+        <input type="text" name="description" value="{{ books.description }}" required><br>
+
+
+        <button class="updateButton" type="submit">Güncelle</button>
+    </form>
+    <br>
+    <a class="backToList" href="{{ url_for('books.list_books') }}">Listeye Dön</a>
+</body>
+</html>

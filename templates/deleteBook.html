@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Sil</title>
+    <link rel="stylesheet" href="static\css\deleteBook.css">
+</head>
+<body>
+    <div class="main-container">
+        <h2 class="yazi1">Kitap Silme</h2>
+
+        <form action="{{ url_for('books.deleteBook') }}" method="POST">
+            <div class="form-group">
+                <label class="label1">Silinecek Kitabsın ISBN numarsı:</label>
+                <input type="text" name="isbn" required placeholder="Örn: 1234567891011(13 haneli)" autocomplete="off">
+            </div>
+     
+            <div class="button-container">
+                <button type="submit" class="delete-btn">Sil</button>
+                <a href="{{ url_for('books.list_books') }}" class="list-link">Kitap Listesi</a>
+            </div>  
+        </form>
+    </div>
+</body>
+</html>

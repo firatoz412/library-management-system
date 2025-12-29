@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Ana Sayfası</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/adminIndex.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="yazi1">
+                <span class="register">
+                    <a href="{{ url_for('auth.register') }}"><i class="fa-solid fa-user-plus"></i> Kayıt Ol</a>
+                </span>
+                Kütüphane Yönetim Sistemi
+                <span class="logout">
+                    <a href="{{ url_for('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Çıkış Yap</a>
+                </span>
+            </h1>
+        </header>
+
+        <main class="ortabar">
+            <div class="menu-grid">
+                <div class="menu-item ekle">
+                    <div class="menu-content">
+                        <div class="menu-icon">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div class="menu-text">
+                            <h3>Kitap Ekle</h3>
+                            <p>Yeni kitap ekleyin</p>
+                        </div>
+                    </div>
+                    <a class="menu-link" href="{{url_for('books.addBook')}}"></a>
+                </div>
+
+                <div class="menu-item sil">
+                    <div class="menu-content">
+                        <div class="menu-icon">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                        <div class="menu-text">
+                            <h3>Kitap Sil</h3>
+                            <p>Kayıttan kitap silin</p>
+                        </div>
+                    </div>
+                    <a class="menu-link" href="{{url_for('books.deleteBook')}}"></a>
+                </div>
+
+                <div class="menu-item listele">
+                    <div class="menu-content">
+                        <div class="menu-icon">
+                            <i class="fa-solid fa-list-ul"></i>
+                        </div>
+                        <div class="menu-text">
+                            <h3>Kitap Listesi</h3>
+                            <p>Tüm kitapları görüntüleyin</p>
+                        </div>
+                    </div>
+                    <a class="menu-link" href="{{url_for('books.list_books')}}"></a>
+                </div>
+
+                <div class="menu-item ara">
+                    <div class="menu-content">
+                        <div class="menu-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="menu-text">
+                            <h3>Kitap Ara</h3>
+                            <p>Kitap araması yapın</p>
+                        </div>
+                    </div>
+                    <a class="menu-link" href="{{url_for('books.bookSearch')}}"></a>
+                </div>
+
+            </div>
+        </main>
+
+        <div class="image-container">
+            <div class="ortabar2">
+                <img src="/static/images/library_images1.png" alt="resim eklenemedi.">
+            </div>
+
+            <div class="ortabar3">
+                <img src="/static/images/library_images2.png" alt="resim eklenemedi.">
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Geliştirici Bilgileri</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/firatoz412" target="_blank" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                            <span>Github</span>
+                        </a>
+                        <a href="mailto:firatoz412@gmail.com" title="E-posta">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>E-mail</span>
+                        </a>
+                        <a href="#" target="_blank" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Kütüphane Yönetim Sistemi.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcılar</title>
+    <link rel="stylesheet" href="static\css\books.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h2>Kullanıcı Listesi</h2>
+        <p class="subtitle">Sistemde kayıtlı olan tüm kullanıcılar</p>
+    </header>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th class="baslik">ID</th>
+                    <th class="baslik">Ad</th>
+                    <th class="baslik">Soyad</th>
+                    <th class="baslik">Kullanıcı Adı</th>
+                    <th class="baslik">E-posta</th>
+                    <th class="baslik">Rol</th>
+                    <th class="baslik">Kayıt Tarihi</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user["id"] }}</td>
+                    <td>{{ user["name"] }}</td>
+                    <td>{{ user["surename"] }}</td>
+                    <td>{{ user["username"] }}</td>
+                    <td>{{ user["email"] }}</td>
+                    <td>{{ user["role"] }}</td>
+                    <td>{{ user["created_at"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

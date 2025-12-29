@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli</title>
+    <link rel="stylesheet" href="static\css\adminPanel.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Paneli</h1>
+        <p class="welcome">Hoş geldiniz {{ session.name }} {{session.surename}}</p>
+        
+        <div class="nav-links">
+            <a href="{{ url_for('admin.adminIndex') }}">Ana Sayfa</a>
+            <a href="{{ url_for('books.list_books') }}">Kitaplar</a>
+            <a href="{{ url_for('auth.logout') }}"> Çıkış</a>
+        </div>
+
+        <div class="admin-menu">
+            <a href="{{ url_for('books.addBook') }}" class="menu-card">
+                <h3>Kitap Ekle</h3>
+                <p>Kütüphaneye yeni kitap ekleyin</p>
+            </a>
+            
+            <a href="{{ url_for('books.deleteBook') }}" class="menu-card">
+                <h3>Kitap Sil</h3>
+                <p>Mevcut kitapları silin</p>
+            </a>
+            
+            
+            <a href="{{ url_for('books.bookSearch') }}" class="menu-card">
+                <h3>Kitap Ara</h3>
+                <p>Kitap bilgilerini sorgulayın</p>
+            </a>
+            
+            <a href="{{ url_for('books.list_books') }}" class="menu-card">
+                <h3>Tüm Kitaplar</h3>
+                <p>Kitap listesini görüntüleyin</p>
+            </a>
+
+            <a href="{{ url_for('admin.userList') }}" class="menu-card">
+                <h3>Kayıtlı Kullanıcılar</h3>
+                <p>Kayıtlı kullanıcıları görüntüleyinç.</p>
+            </a>
+
+            <a href="{{ url_for('admin.list_penalties') }}" class="menu-card">
+                <h3>Cezalı Kullanıcılar </h3>
+                <p>Ceza Almış Kullanıcıları Görüntüleyin.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

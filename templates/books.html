@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitaplar</title>
+    <link rel="stylesheet" href="static\css\books.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h2>Kitap Listesi</h2>
+    </header>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th class="baslik">ID</th>
+                    <th class="baslik">Kitap Adı</th>
+                    <th class="baslik">Yazar</th>
+                    <th class="baslik">Kategori</th>
+                    <th class="baslik">ISBN</th>
+                    <th class="baslik">Basım Yılı</th>
+                    <th class="baslik">Açıklama</th>
+                    <th class="baslik">İşlemler</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book["book_id"] }}</td>
+                    <td>{{ book["title"] }}</td>
+                    <td>{{ book["author_name"] }}</td>
+                    <td>{{ book["category_name"] }}</td>
+                    <td>{{ book["isbn"] }}</td>
+                    <td>{{ book["publish_year"] }}</td>
+                    <td>{{ book["description"] if book["description"] else "Açıklama Yok" }}</td>
+                    <td>
+                        <div class="action-buttons-row">
+                            <a href="{{ url_for('books.borrowBook', book_id=book['book_id']) }}" class="action-btn borrow-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
+                                </svg>
+                                <span>Ödünç Al</span>
+                            </a>
+                            <a href="{{ url_for('books.returnBook', book_id=book['book_id']) }}" class="action-btn return-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+                                </svg>
+                                <span>İade Et</span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+    
+</div>
+
+</body>
+</html>

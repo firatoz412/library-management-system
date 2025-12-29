@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cezalı Kullanıcı Listesi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/books.css') }}">
+    <style>
+        .status-active { color: #d9534f; font-weight: bold; } 
+        .status-expired { color: #5cb85c; } 
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h2>Ceza Almış Kullanıcılar</h2>
+        <a href="{{ url_for('admin.adminIndex') }}" style="text-decoration: none; color: blue;">← Panele Dön</a>
+    </header>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th class="baslik">Kullanıcı Adı</th>
+                    <th class="baslik">E-Posta</th>
+                    <th class="baslik">Geciken Kitap</th>
+                    <th class="baslik">Ceza Başlangıç</th>
+                    <th class="baslik">Yasak Bitiş Tarihi</th>
+                    <th class="baslik">Kitap İade Durumu</th>
+                    <th class="baslik">Ceza DurumU</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for penalty in penalties %}
+                <tr>
+                    <td>{{ penalty["username"] }}</td>
+                    <td>{{ penalty["email"] }}</td>
+                    <td>{{ penalty["title"] }}</td>
+                    <td>{{ penalty["penalty_start_date"].strftime('%d-%m-%Y %H:%M') }}</td>
+                    <td>{{ penalty["penalty_end_date"].strftime('%d-%m-%Y %H:%M') }}</td>
+                    <td>{{ penalty["is_returned"] }}</td>
+
+                    <td>
+                        {% if penalty["penalty_end_date"] > now %}
+                            <span style="color: red; font-weight: bold;">Kısıtlı (Süre Dolmadı)</span>
+                        {% else %}
+                            <span style="color: green;">Süre Doldu Artık Kitap Ödünç Alablirsiniz.</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" style="text-align: center;">Şu an sistemde cezalı kullanıcı bulunmamaktadır.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

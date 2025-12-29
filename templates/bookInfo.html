@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Detayları</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=undo" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bookInfo.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="yazi">Kitap Detayları</h1>
+        
+        {% if books %}
+            <div class="info">
+                <p><i>Kitap Adı:{{books.title}}</i></p>
+                <p><i>Kitap Yazarı: {{books.author_name}}</i></p>
+                <p><i> Kategorisi:{{books.category_name}}</i></p>
+                <p><i>ISBN Numarası: {{books.isbn}}</i></p>
+                <p><i>Kitabın Yayın Yılı: {{books.publish_year}}</i></p>
+                <p><i>Kitabın Konusu:{{books.description}}</i></p>
+            </div>
+        {% else %}
+            <div class="alert">
+                Kitap bulunamadı!
+            </div>
+        {% endif %}
+
+        <div class="link-container">
+            <div class="link">
+                <a href="{{ url_for('books.list_books') }}">
+                    <span class="material-symbols-outlined">undo</span>
+                    Kitap Listesi
+                </a>
+            </div>
+
+            <div class="link">
+                <a href="{{ url_for('books.bookSearch') }}">
+                    <span class="material-symbols-outlined">undo</span>
+                    Kitap Arama
+                </a>
+            </div>
+
+            <div class="link">
+                <a href="{{ url_for('index') }}">
+                    <span class="material-symbols-outlined">undo</span>
+                    Ana Sayfaya Dön
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

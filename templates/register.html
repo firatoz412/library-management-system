@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="static\css\register.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kayıt Ol</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="form">
+                <label for="username">Ad:</label>
+                <input type="text" id="username" name="name" required autofocus>
+            </div>
+
+            <div class="form">
+                <label for="username">Soyad:</label>
+                <input type="text" id="username" name="surename" required autofocus>
+            </div>
+
+            <div class="form">
+                <label for="username">Kullanıcı Adı:</label>
+                <input type="text" id="username" name="username" required autofocus>
+            </div>
+
+            <div class="form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form">
+                <label for="password">Şifre:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form">
+                <label for="passwordConfirm">Şifre Tekrar:</label>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+            </div>
+
+            <button type="submit">Kayıt Ol</button>
+        </form>
+
+        <div class="links">
+            <p>Zaten hesabınız var mı? <a href="{{ url_for('auth.login') }}">Giriş Yap</a></p>
+        </div>
+
+        <div class="back-home">
+            <a href="{{ url_for('index') }}">Ana Sayfaya Dön</a>
+        </div>
+        
+        <div class="admin-login">
+            <a href="{{ url_for('admin.adminRegister', admin=1) }}" class="admin-btn">
+                Adminler için kayıt sayfası
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

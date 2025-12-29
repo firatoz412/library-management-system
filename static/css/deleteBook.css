@@ -1,0 +1,85 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ee5a52;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .main-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        .yazi1 {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .label1 {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .delete-btn {
+            flex: 1;
+            padding: 12px;
+            background: #c53030;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            min-width: 120px;
+        }
+
+        .list-link {
+            flex: 1;
+            padding: 12px;
+            background: #4299e1;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }

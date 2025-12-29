@@ -1,0 +1,355 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            padding: 20px;
+        }
+
+        .yazi1 {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 2em;
+            margin: 0 auto;
+            max-width: 1000px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .logout {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.45em;
+        }
+
+        .register {
+            position: absolute;
+            right: 150px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.45em;
+        }
+
+        .logout a, .register a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .logout a:hover, .register a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+        }
+
+        .ortabar {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Menu Grid - 2 sütun 3 satır */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .menu-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item:hover::before {
+            opacity: 1;
+        }
+
+        .menu-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover .menu-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .ekle .menu-icon {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .sil .menu-icon {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+
+        .listele .menu-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .ara .menu-icon {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .oduncal .menu-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .iadeet .menu-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .menu-text h3 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .menu-text p {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .menu-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        /* Resim konteyneri */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Ortabar2 ve Ortabar3 - Resimler */
+        .ortabar2, .ortabar3 {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .ortabar2 img, .ortabar3 img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .ortabar2 img:hover, .ortabar3 img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px 15px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-info h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .contact-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .contact-links i {
+            font-size: 1.2em;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .yazi1 {
+                font-size: 1.5em;
+                padding: 15px 20px;
+            }
+            
+            .logout, .register {
+                position: static;
+                display: block;
+                margin-top: 12px;
+                transform: none;
+                text-align: center;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .menu-item {
+                padding: 25px;
+            }
+            
+            .menu-text h3 {
+                font-size: 1.2em;
+            }
+            
+            .contact-links {
+                gap: 15px;
+            }
+            
+            .image-container {
+                flex-direction: column;
+            }
+            
+            .ortabar2, .ortabar3 {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .yazi1 {
+                font-size: 1.3em;
+            }
+            
+            .menu-item {
+                padding: 20px;
+            }
+            
+            .menu-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+            
+            .menu-text h3 {
+                font-size: 1.1em;
+            }
+            
+            .menu-text p {
+                font-size: 0.85em;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }

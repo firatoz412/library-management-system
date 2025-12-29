@@ -1,0 +1,107 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+.container{max-width:1200px;margin:0 auto;}
+
+header{text-align:center;margin-bottom:40px;color:white;}
+
+h2{
+    font-size:36px;
+    margin-bottom:10px;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.subtitle{font-size:16px;opacity:0.9;}
+
+.table-wrapper{
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+table{width:100%;border-collapse:collapse;}
+
+th{
+    background:#667eea;
+    color:white;
+    padding:15px;
+    text-align:left;
+    font-weight:600;
+    font-size:14px;
+}
+
+td{
+    padding:12px 15px;
+    border-bottom:1px solid #f0f0f0;
+    font-size:14px;
+    color:#333;
+}
+
+tr:hover{background-color:#f8f9ff;}
+tr:last-child td{border-bottom:none;}
+
+/* Yeni buton stilleri */
+.action-buttons-row{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    align-items:center;
+}
+
+.action-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:all 0.3s ease;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.borrow-btn{
+    background:#4CAF50;
+    color:white;
+}
+
+.borrow-btn:hover{
+    background:#45a049;
+}
+
+.return-btn{
+    background:#FF9800;
+    color:white;
+}
+
+.return-btn:hover{
+    background:#e68900;
+}
+
+.action-btn svg{
+    flex-shrink:0;
+}
+
+@media(max-width:768px){
+    .table-wrapper{overflow-x:auto;}
+    table{min-width:800px;}
+    h2{font-size:28px;}
+    .action-btn{font-size:12px;padding:8px 12px;}
+    .action-btn span{display:none;}
+}
+
+.baslik{font-weight:700;font-size:16px;}
